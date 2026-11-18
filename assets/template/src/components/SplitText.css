@@ -1,0 +1,14 @@
+.split-parent {
+  margin: 0;
+}
+
+.split-char,
+.split-word,
+.split-line {
+  display: inline-block;
+  will-change: transform;
+}
+
+.split-line {
+  display: block;
+}

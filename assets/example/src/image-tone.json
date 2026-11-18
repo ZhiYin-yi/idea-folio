@@ -1,0 +1,8 @@
+{
+  "tone": "light",
+  "luminance": 0.735,
+  "mode": "defaults",
+  "sources": [
+    "defaults"
+  ]
+}

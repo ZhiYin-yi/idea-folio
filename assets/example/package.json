@@ -1,0 +1,27 @@
+{
+  "name": "idea-folio",
+  "private": true,
+  "license": "MIT",
+  "author": "ZhiYin",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5299",
+    "build": "vite build",
+    "images": "python scripts/images.py",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "@hugeicons/core-free-icons": "4.4.0",
+    "@hugeicons/react": "1.1.10",
+    "gsap": "3.15.1",
+    "@gsap/react": "2.1.2",
+    "motion": "14.14.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.3",
+    "vite": "5.4.11"
+  }
+}
