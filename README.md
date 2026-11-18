@@ -24,6 +24,30 @@
 
 零输入也能出站：不带任何图片和文案，直接用内置默认值就是一条完整页面。
 
+## 安装
+
+这个仓库的结构就是技能的结构，**放到 skills 目录即可被识别**，不需要编译。
+
+**DeepSeek Harness**
+
+```powershell
+# 方式一：git
+git clone https://github.com/<你的用户名>/idea-folio.git "$env:USERPROFILE\.dsh\skills\idea-folio"
+
+# 方式二：拿到 zip 后解压
+Expand-Archive idea-folio.zip -DestinationPath "$env:USERPROFILE\.dsh\skills" -Force
+```
+
+**Claude Code**（同样是 SKILL.md + frontmatter 规范）
+
+```powershell
+git clone https://github.com/<你的用户名>/idea-folio.git "$env:USERPROFILE\.claude\skills\idea-folio"
+```
+
+装完刷新对话（或重开应用），技能列表里应出现 `idea-folio`。用法一句话：
+
+> 用 idea-folio 给我做一个个人主页，图片在 `D:\pics\`
+
 ## 快速开始
 
 ```powershell
