@@ -23,6 +23,18 @@ import sys
 
 from PIL import Image, ImageStat
 
+# Windows 控制台默认 GBK，中文输出会乱码；这里主动切到 UTF-8
+if os.name == "nt":
+    try:
+        import ctypes
+        ctypes.windll.kernel32.SetConsoleOutputCP(65001)
+    except Exception:
+        pass
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 SLOTS = {
     "welcome": (3, 2, 1800),
     "hero": (3, 2, 1800),
@@ -150,6 +162,7 @@ def main():
     tone = "light" if luma >= 0.55 else "dark"
     meta = {"tone": tone, "luminance": round(luma, 3), "mode": mode,
             "sources": [os.path.basename(f) for f in files] or ["defaults"]}
+    os.makedirs(os.path.join(project, "src"), exist_ok=True)
     with open(os.path.join(project, "src", "image-tone.json"), "w", encoding="utf-8") as fh:
         json.dump(meta, fh, indent=2, ensure_ascii=False)
 

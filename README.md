@@ -50,6 +50,26 @@ git clone https://github.com/<你的用户名>/idea-folio.git "$env:USERPROFILE\
 
 ## 快速开始
 
+**最快的方式**：一行命令搞定「复制模板 + 生成图片 + 装依赖 + 起服务」。
+
+```powershell
+pwsh scripts/init.ps1 -Target "D:\work\my-site"
+
+# 用自己的图
+pwsh scripts/init.ps1 -Target "D:\work\my-site" -Images "C:\pics\a.jpg","C:\pics\b.jpg"
+
+# 机器上只有 Windows 自带的 PowerShell（没有 pwsh）
+powershell -ExecutionPolicy Bypass -File scripts/init.ps1 -Target "D:\work\my-site"
+```
+
+启动后打开 http://127.0.0.1:5299/ ，再跑验收：
+
+```powershell
+node scripts/verify.mjs --url http://127.0.0.1:5299 --out shots
+```
+
+<details>
+<summary>手动步骤（不想用脚本时）</summary>
 ```powershell
 # 1. 复制模板
 Copy-Item "assets\template" "D:\work\my-site" -Recurse
@@ -70,6 +90,8 @@ npm run dev     # http://127.0.0.1:5299
 # 6. 验收
 node ..\..\scripts\verify.mjs --url http://127.0.0.1:5299 --out shots
 ```
+
+</details>
 
 ## 图片怎么处理
 
